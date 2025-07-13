@@ -56,11 +56,11 @@ for ds in DATASETS:
     # Linkage
     for modo in ['single', 'complete']:
         print(f"\n--- Executando {modo}-linkage para k de {ds['kmin']} a {ds['kmax']} ---")
-        rodar_linkage(dados, ids, ds["kmin"], ds["kmax"], modo, PART_DIR)
+        rodar_linkage(dados, ids, ds["kmin"], ds["kmax"], modo, PART_DIR, ds["nome"])
         
         for k in range(ds["kmin"], ds["kmax"]+1):
             print(f"Calculando ARI para {modo}-linkage k={k}...")
-            part_path = os.path.join(PART_DIR, f"linkage_{modo}_k{k}.clu")
+            part_path = os.path.join(PART_DIR, f"{ds['nome']}_linkage_{modo}_k{k}.clu")
             rotulos_pred = ler_rotulos_clu(part_path)
             ari = calcular_ari(rotulos_reais, rotulos_pred)
             print(f"ARI para {modo}-linkage k={k}: {ari:.4f}")

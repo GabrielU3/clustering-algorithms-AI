@@ -137,7 +137,7 @@ def fcluster_custom(Z, k, criterion='maxclust'):
     
     return rotulos
 
-def rodar_linkage(dados, ids, k_min, k_max, modo, pasta_saida):
+def rodar_linkage(dados, ids, k_min, k_max, modo, pasta_saida, nome_dataset):
     """Executa single-linkage ou complete-linkage para k em [k_min, k_max] e salva as partições."""
     print(f"Executando {modo}-linkage para k de {k_min} a {k_max}...")
     Z = linkage_hierarquico(dados, metodo=modo)
@@ -146,6 +146,6 @@ def rodar_linkage(dados, ids, k_min, k_max, modo, pasta_saida):
     for k in range(k_min, k_max+1):
         print(f"Gerando partição para k={k}...")
         rotulos = fcluster_custom(Z, k, criterion='maxclust')
-        caminho = f"{pasta_saida}/linkage_{modo}_k{k}.clu"
+        caminho = f"{pasta_saida}/{nome_dataset}_linkage_{modo}_k{k}.clu"
         salvar_particao_clu(ids, rotulos, caminho)
         print(f"Partição k={k} salva em {caminho}") 

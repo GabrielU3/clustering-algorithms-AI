@@ -36,4 +36,4 @@ def salvar_particao_clu(ids, rotulos, caminho):
     """Salva os ids e rótulos em um arquivo .clu (separador tab)."""
     with open(caminho, 'w') as f:
         for i, r in zip(ids, rotulos):
-            f.write(f"{i}\t{r}\n") 
+            f.write(f"{i}\t{r + 1}\n")
