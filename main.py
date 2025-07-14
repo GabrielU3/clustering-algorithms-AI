@@ -7,9 +7,9 @@ from src.visualize import plot_clusters
 
 # Definição dos datasets e parâmetros
 DATASETS = [
-    {"nome": "c2ds1-2sp", "txt": "datasets/c2ds1-2sp.txt", "clu": "datasets/c2ds1-2spReal.clu", "kmin": 3, "kmax": 3},
-    {"nome": "c2ds3-2g", "txt": "datasets/c2ds3-2g.txt", "clu": "datasets/c2ds3-2gReal.clu", "kmin": 3, "kmax": 3},
-    {"nome": "monkey", "txt": "datasets/monkey.txt", "clu": "datasets/monkeyReal1.clu", "kmin": 5, "kmax": 5},
+    {"nome": "c2ds1-2sp", "txt": "datasets/c2ds1-2sp.txt", "clu": "datasets/c2ds1-2spReal.clu", "kmin": 2, "kmax": 5},
+    {"nome": "c2ds3-2g", "txt": "datasets/c2ds3-2g.txt", "clu": "datasets/c2ds3-2gReal.clu", "kmin": 2, "kmax": 5},
+    {"nome": "monkey", "txt": "datasets/monkey.txt", "clu": "datasets/monkeyReal1.clu", "kmin": 5, "kmax": 12},
 ]
 
 RESULTS_DIR = "results"
