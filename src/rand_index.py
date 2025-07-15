@@ -38,19 +38,19 @@ def calcular_ari(rotulos_reais, rotulos_pred):
     row_sum = np.sum(cont_table, axis=1)
     col_sum = np.sum(cont_table, axis=0)
     
-    # Calcular somas dos quadrados
-    sum_cont_table = np.sum(cont_table**2)
-    sum_row_sum = np.sum(row_sum**2)
-    sum_col_sum = np.sum(col_sum**2)
+    # Calcular comb de 2
+    sum_cont_table = np.sum(cont_table * (cont_table - 1) / 2)
+    sum_row_sum = np.sum(row_sum * (row_sum - 1) / 2)
+    sum_col_sum = np.sum(col_sum * (col_sum - 1) / 2)
+
+    total_comb = n * (n - 1) / 2
     
     # Calcular o número esperado de pares concordantes
-    expected_index = sum_row_sum * sum_col_sum / float(n**2)
+    expected_index = sum_row_sum * sum_col_sum / total_comb
     
     # Calcular o índice máximo
     max_index = (sum_row_sum + sum_col_sum) / 2.0
     
-    # Calcular o índice mínimo
-    min_index = min(sum_row_sum, sum_col_sum)
     
     # Calcular o índice Rand ajustado
     if max_index == expected_index:
