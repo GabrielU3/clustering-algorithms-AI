@@ -41,7 +41,7 @@ for ds in DATASETS:
     print(f"Rótulos reais carregados: {len(rotulos_reais)} rótulos")
 
     # K-means
-    k = ds["kmin"] + ds["kmax"] // 2
+    k = (ds["kmin"] + ds["kmax"]) // 2
     print(f"\n--- Executando K-means para k = {k}")
     part_path = os.path.join(PART_DIR, f"{ds['nome']}_kmeans_k{k}.clu")
     rotulos_pred = rodar_kmeans(dados, k, 20, ids, part_path)
