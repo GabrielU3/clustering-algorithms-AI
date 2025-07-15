@@ -81,11 +81,6 @@ def linkage_hierarquico_otimizado(dados, metodo='single'):
     
     return np.array(Z)
 
-def linkage_hierarquico(dados, metodo='single'):
-    """
-    Wrapper para usar a versão otimizada.
-    """
-    return linkage_hierarquico_otimizado(dados, metodo)
 
 def fcluster_custom(Z, k, criterion='maxclust'):
     """
@@ -140,7 +135,7 @@ def fcluster_custom(Z, k, criterion='maxclust'):
 def rodar_linkage(dados, ids, k_min, k_max, modo, pasta_saida, nome_dataset):
     """Executa single-linkage ou complete-linkage para k em [k_min, k_max] e salva as partições."""
     print(f"Executando {modo}-linkage para k de {k_min} a {k_max}...")
-    Z = linkage_hierarquico(dados, metodo=modo)
+    Z = linkage_hierarquico_otimizado(dados, metodo=modo)
     print(f"Matriz de ligação construída. Gerando partições...")
     
     for k in range(k_min, k_max+1):
